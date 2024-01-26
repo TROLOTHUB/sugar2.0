@@ -1,0 +1,238 @@
+.searchpage-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Limita la altura al 100% de la altura de la ventana */
+  overflow: hidden; /* Oculta el contenido que se desborde */
+}
+.searchpage-header {
+  background-color: #001327; /* Color de ejemplo */
+  padding: 10px;
+  text-align: left; /* Alinea el contenido a la izquierda */
+}
+
+.App-logosearch {
+  height: 5vmin; /* o cualquier otro tamaño */
+  width: 18vmin; /* o cualquier otro tamaño */
+  transition: transform 0.2s; /* suaviza la transición */
+}
+
+/* Estado del logo al pasar el mouse por encima */
+.App-logosearch:hover {
+  animation: zoomIn 1.0s forwards;
+}
+
+.searchpage-body {
+  flex-grow: 1; /* Hace que el cuerpo ocupe el espacio restante */
+}
+
+.searchpage-sidebar button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  text-align: left;
+  width: 100%; /* Esto garantiza que el botón llene el espacio horizontal */
+}
+
+.searchpage-sidebar button.active {
+  background-color: #006eff; /* Color de ejemplo para el botón activo */
+}
+
+.searchpage-main {
+  display: flex;
+}
+
+.searchpage-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Los hijos se apilan verticalmente */
+  padding-top: 10px; /* Ajusta el espacio desde la parte superior */
+}
+
+.searchpage-sidebar {
+  background-color: #004a99; /* El color de fondo de tu barra lateral */
+  width: 50px; /* Ancho inicial para barra lateral contraída */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; /* Los botones ocupan todo el ancho disponible */
+  height: calc(100vh - 10px); /* Resta la altura de tu cabecera si tiene padding */
+  margin-top: 0; /* Confirma que no hay margen superior */
+  transition: width 0.1s; /* Transición suave al expandirse */
+  overflow: hidden;
+}
+
+.searchpage-sidebar:hover {
+  width: 180px;
+}
+
+.icon-plus {
+  background-image: url('/public/iconplus.png'); /* Ruta al ícono de agregar */
+}
+
+.icon-search {
+  background-image: url('/public/iconsearch.png'); /* Ruta al ícono de buscar */
+}
+
+.icon-request {
+  background-image: url('/public/iconrequest.png'); /* Ruta al ícono de buscar */
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  display: block; /* Cada ícono en su propia línea */
+  width: 100%; /* Los íconos ocupan todo el ancho disponible */
+  height: 35px; /* Ajusta la altura según sea necesario */
+  background-size: contain; /* Asegúrate de que el ícono se ajuste bien */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.searchpage-sidebar .sidebar-icon {
+  display: block; /* Muestra los iconos cuando la barra está contraída */
+  width: 100%;
+  margin: -9px 0; /* Espaciado entre iconos */
+}
+
+.sidebar-text {
+  display: inline;
+}
+
+.searchpage-sidebar .sidebar-text {
+  display: none; /* Oculta el texto cuando la barra está contraída */
+  width: 100%;
+}
+
+.searchpage-sidebar:hover .sidebar-icon {
+  display: none; /* Oculta los iconos cuando la barra se expande */
+  display: inline-block;
+  transform: scale(0.9); /* Reduce el tamaño del icono a 0 para ocultarlo */
+}
+
+.searchpage-sidebar:hover .sidebar-text {
+  display: block; /* Muestra el texto cuando la barra se expande */
+  display: inline-block;
+  opacity: 1;
+}
+
+.searchpage-sidebar button .sidebar-icon {
+  display: block;
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+  transition: transform 0.3s
+}
+
+.searchpage-sidebar button .sidebar-text {
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.searchpage-sidebar.expanded {
+  width: 200px; /* Establece el ancho deseado para la barra lateral expandida */
+}
+
+.searchpage-sidebar.expanded .sidebar-icon {
+  transform: scale(1); /* Restablece el tamaño del icono */
+  opacity: 1; /* Restablece la opacidad del icono */
+}
+
+.searchpage-sidebar.expanded .sidebar-text {
+  display: inline; /* Muestra el texto */
+}
+
+
+/* Cambia la visibilidad del texto y los iconos en el hover de los botones */
+.searchpage-sidebar button:hover .sidebar-icon {
+  display: none; /* Oculta los iconos al pasar el ratón */
+}
+
+.searchpage-sidebar button:hover .sidebar-text {
+  display: block; /* Muestra el texto al pasar el ratón */
+}
+
+.search-form {
+  display: flex;
+  justify-content: start; /* Alinea los hijos al inicio */
+  align-items: center; /* Alinea los hijos verticalmente */
+  padding: 20px; /* Espacio interior */
+  width: 50%;
+  /* Asegúrate de que .search-form no tenga un ancho completo si quieres que se vea al lado de la barra lateral */
+}
+
+.search-field-row {
+  display: flex;
+  align-items: center; /* Centra verticalmente la etiqueta con el select */
+  margin-bottom: 10px; /* Espacio debajo de cada grupo de campo */
+}
+
+.search-field-group label {
+  margin-right: 10px; /* Espacio entre la etiqueta y el campo */
+}
+
+/* Puedes necesitar ajustar el estilo de tus selects para que coincidan con tu diseño */
+.search-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-fields {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+  gap: 10px; /* Espacio entre los campos de búsqueda */
+}
+
+.search-form input {
+  flex: 1; /* Permite que los inputs se expandan */
+  min-width: 120px; /* Ancho mínimo para que no sean demasiado pequeños */
+}
+
+.search-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-form button {
+  padding: 6px 16px;
+  background-color: #0056b3; /* O el color que prefieras para el botón */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #006eff;
+  }
+}
+
+.searchpage-footer {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  /* Acomoda los elementos en columna */
+  align-items: center;
+  /* Centra los elementos en el eje horizontal */
+  justify-content: center;
+  /* Centra los elementos en el eje vertical */
+  text-align: center;
+  /* Alinea el texto al centro */
+  padding: 10px 0;
+  /* Añade padding arriba y abajo */
+  background-color: #001020;
+  /* Ajusta al color de fondo deseado */
+  color: white;
+  /* Ajusta el color del texto */
+  font-size: 0.75rem;
+  /* Ajusta el tamaño del texto */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Si decides que el pie de página debe tener un ancho máximo específico, puedes ajustarlo aquí */
+.searchpage-footer p {
+  margin: 0;
+  padding: 0.5em; /* Espacio entre los párrafos */
+}

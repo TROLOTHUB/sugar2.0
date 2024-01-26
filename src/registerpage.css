@@ -1,19 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 12vmin; /* o cualquier otro tamaño */
-  width: 40vmin; /* o cualquier otro tamaño */
-  transition: transform 0.2s; /* suaviza la transición */
-}
-
-/* Estado del logo al pasar el mouse por encima */
-.App-logo:hover {
-  animation: zoomIn 1.0s forwards;
-}
-
-.App-header {
+.registerpage-header {
   background-color: #0c1118;
   min-height: 100vh;
   display: flex;
@@ -24,22 +9,15 @@
   color: white;
 }
 
-
-@keyframes zoomIn {
-  0%, 100% {
-    transform: scale(1.0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
 .register-container {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 0px solid #ddd;
+  border-radius: 4px;
+  display: flex; /* Asegúrate de que los elementos se alinean correctamente */
+  flex-direction: column; /* Los elementos deben estar en columna */
+  align-items: flex-start;
   }
   
   .register-container div {
@@ -54,12 +32,15 @@
   input, select {
     width: 100%;
     padding: .5rem;
-    border: 1px solid #ccc;
+    padding-left: 0.3rem; /* Reduce el relleno izquierdo si es necesario */
+    border: none; /* Esto quitará el borde */
     border-radius: 4px;
+    margin-bottom: 1rem;
   }
   
   button {
     padding: .5rem 1rem;
+    margin-right: 0.5rem; /* Espacio entre botones si están uno al lado del otro */
     border: none;
     border-radius: 4px;
     background-color: #007bff;

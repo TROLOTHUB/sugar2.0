@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import NewPage from './newpage.js'; // Asegúrate de que el import sea correcto
+import NewPage from './registerpage.js';
+import CreateAccountPage from './CreateAccountPage';
+import SearchPage from './SearchPage.js';
+import './registerpage.css';
 
 const Home = () => {
   return (
@@ -11,20 +14,6 @@ const Home = () => {
     </div>
   );
 };
-
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        {/* Las Rutas determinarán qué componente se renderiza */}
-        <Routes>
-          <Route path="/newpage" element={<NewPage />} />
-          <Route path="/" element={<HomeWithHeader />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
 
 // Crear un componente que incluya el encabezado y el componente Home
 const HomeWithHeader = () => {
@@ -39,5 +28,21 @@ const HomeWithHeader = () => {
     </>
   );
 };
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        {/* Las Rutas determinarán qué componente se renderiza */}
+        <Routes>
+          <Route path="/newpage" element={<NewPage />} />
+          <Route path="create-account" element={<CreateAccountPage />} />
+          <Route path="/" element={<HomeWithHeader />} />
+          <Route path="/search" element={<SearchPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
 
 export default App;
